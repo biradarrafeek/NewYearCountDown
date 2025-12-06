@@ -1,0 +1,94 @@
+  :root{
+      --bg:#0b1020;
+      --card:#0f1724;
+      --accent:#ffcc00;
+      --text:#e6eef8;
+      --muted:rgba(230,238,248,0.6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 15% 20%, rgba(255,200,80,0.06), transparent),
+                  radial-gradient(900px 500px at 85% 80%, rgba(120,200,255,0.04), transparent),
+                  var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:980px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.7);
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    header{display:flex;align-items:center;gap:16px}
+    .logo{font-weight:700;font-size:20px;letter-spacing:0.6px;color:var(--accent)}
+    p.lead{margin:6px 0 22px;color:var(--muted)}
+
+    .countdown{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:14px 18px;
+      border-radius:12px;
+      min-width:90px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.03);
+      transform-origin:center;
+      transition:transform 300ms cubic-bezier(.2,.9,.2,1);
+    }
+    .card:hover{transform:translateY(-6px) scale(1.02)}
+
+    .number{
+      font-size:36px;
+      font-weight:800;
+      letter-spacing:0.6px;
+      display:block;
+      line-height:1;
+      margin-bottom:6px;
+      color:var(--text);
+      text-shadow:0 6px 22px rgba(0,0,0,0.6);
+    }
+    .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px}
+
+    .meta{
+      display:flex;gap:12px;align-items:center;justify-content:center;margin-top:6px;
+    }
+    .btn{background:linear-gradient(90deg,var(--accent),#ff8a00);padding:10px 16px;border-radius:999px;border:none;color:#081426;font-weight:700;cursor:pointer}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* confetti canvas absolute */
+    canvas#fx{position:absolute;inset:0;pointer-events:none}
+
+    /* fireworks container */
+    #fireworks{
+      position:absolute;inset:0;pointer-events:none;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:520px){
+      .number{font-size:28px}
+      .card{min-width:70px;padding:10px 12px}
+    }
+
+    /* subtle twinkling stars */
+    .stars{position:absolute;inset:0;opacity:0.35;filter:blur(0.4px);}
+    .countdown-announced{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .headline{font-size:28px;font-weight:900;color:var(--accent)}
