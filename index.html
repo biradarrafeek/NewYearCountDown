@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎉 New Year Countdown — Animated</title>
+   <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="wrap">
+    <div class="stars" aria-hidden>
+      <!-- Decorative stars via SVG for tiny sparkle -->
+      <svg width="100%" height="100%" preserveAspectRatio="none">
+        <defs>
+          <g id="s"><circle r="1" fill="white" opacity="0.9"/></g>
+        </defs>
+        <!-- generate stars using <use> repeated (visually nice but tiny) -->
+        <use href="#s" x="8%" y="10%"/>
+        <use href="#s" x="20%" y="30%"/>
+        <use href="#s" x="30%" y="60%"/>
+        <use href="#s" x="42%" y="22%"/>
+        <use href="#s" x="60%" y="40%"/>
+        <use href="#s" x="75%" y="12%"/>
+        <use href="#s" x="88%" y="70%"/>
+      </svg>
+    </div>
+
+    <header>
+      <div class="logo">New Year Countdown</div>
+      <div style="flex:1">
+        <p class="lead">A fully animated countdown to the new year — save as <code>index.html</code> and open in your browser.</p>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Target:
+          <select id="preset">
+            <option value="auto">Next Jan 1</option>
+            <option value="custom">Custom date...</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main style="padding:12px 0 28px">
+      <div class="countdown" role="timer" aria-live="polite">
+        <div class="card"><span id="days" class="number">0</span><span class="label">Days</span></div>
+        <div class="card"><span id="hours" class="number">0</span><span class="label">Hours</span></div>
+        <div class="card"><span id="minutes" class="number">0</span><span class="label">Minutes</span></div>
+        <div class="card"><span id="seconds" class="number">0</span><span class="label">Seconds</span></div>
+      </div>
+
+      <div class="meta">
+        <button id="celebrate" class="btn">Celebrate 🎆</button>
+        <div class="small">or set a custom date: <input id="dateInput" type="datetime-local" style="background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;color:var(--text)" /></div>
+      </div>
+
+      <div style="margin-top:18px;text-align:center;color:var(--muted);font-size:13px">When countdown reaches zero the fireworks and confetti auto-start.</div>
+
+      <div id="messageArea" style="margin-top:20px"></div>
+
+    </main>
+
+    <!-- canvases for confetti & fireworks -->
+    <canvas id="fx"></canvas>
+    <canvas id="fireworks"></canvas>
+
+  </div>
+
+     <script src="script.js"></script>
+</body>
+</html>
